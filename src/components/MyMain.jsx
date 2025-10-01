@@ -19,8 +19,24 @@ const MyMain = () => {
     return (
         <>
             <main>
-                <div className="onlyMain">
-                    <select></select>
+                <div className="filmsContainer">
+                    <ul className="listFilms">
+                        {filterFilm.map((film, i) => (
+                            <li key={i}>
+                                "{film.title}" - {film.genre}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="optionContainer">
+                    <h2>Scegli il genere che preferisci! Ti mostreremo i film a disposizione</h2>
+                    <select className="genreFilms" value={selectGenre} onChange={(e) => {setSelectGenre(e.target.value)}}>
+                        <option value="">-</option>
+                        <option value="Fantascienza">Fantascienza</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Romantico">Romantico</option>
+                        <option value="Azione">Azione</option>
+                    </select>
                 </div>
             </main>
         </>
